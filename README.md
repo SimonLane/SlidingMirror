@@ -26,5 +26,9 @@ Spring | 1 pack |  2444377 | Farnell | 6.87
 Machine screws | 1 pack | 560-596 | RS Online | 2.39
 
 ## Assembly
-* Print the 3D part using at least 50% infil
+* Print the 3D part using at least 50% infill
+* Remove three of the four servo arms and attach to the servo.
+* Attach the servo to the base with M3 screws
+*Remove the plug from the servo, then solder the wires to the Arduino Nano as shown in the wiring diagram (red to 5V*, Black to Ground, Yellow to any PWM pin)
+    *The servo can draw 140mA, which is comfortably handled by the arduino and the USB supply from a computer
 
