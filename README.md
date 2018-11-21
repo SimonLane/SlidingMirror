@@ -16,12 +16,15 @@ Part | Number | Product Code | Company | Cost (Aprox. GBP)
 ---|---|---|---|---
 Translation Stage 25mm (or 13mm) | 1 | PT1B/M (MT1B/M) | ThorLabs | 161.42 (167.54)
 Mirror mount   | 1   | application specific | -  |  -
-M6 screw | 1pack | SH6MS20 | ThorLabs | 6.66
+M6 screw | 1 pack | SH6MS20 | ThorLabs | 6.66
 Servo  | 1 | 781-3058 | RSonline | 11.06
 Wires  |  1   | 214-0661 |  RS Online   | 14.29
 Switch | 1 | 734-7154 | RS Online | 2.33
 USB cable   | 1   | 121-6574   | RS Online  |  2.41
 Arduino nano (or similar)  |  1  |  1050-1001-ND | Digi-Key  |  16.66
 Spring | 1 pack |  2444377 | Farnell | 6.87
+Machine screws | 1 pack | 560-596 | RS Online | 2.39
 
+## Assembly
+* Print the 3D part using at least 50% infil
 
