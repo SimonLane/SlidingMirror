@@ -34,7 +34,7 @@ Machine screws | 1 pack | 560-596 | RS Online | 2.39
     * Black to Ground
     * Yellow to any PWM (pin 3,5,6,9,10 or 11)
 
-* /*The servo can draw 140mA, which is comfortably handled by the arduino and the USB supply from a computer*
+***The servo can draw 140mA, which is comfortably handled by the arduino and the USB supply from a computer*
 * Mount the arduino on the side of the servo with hot glue for convenience
 * Attach the 3D printed part to the breadboard using an M3 screw. If working in along the 90 degree angles of the board then two screws can be added. In the example shown a 45 degree angle is used, and only one screw is added. A second screw hole is provided on the 25mm version to ensure a neat 45 degree angle is made.
 * 
