@@ -20,7 +20,7 @@ void setup() {
 int d_servo_position = servo_pos_1;
 int c_servo_position = 80;
 long unsigned int prev_time = 0;
-
+bool stable = false;
 
 void update_servo_position(){
   long unsigned int current_time = millis();
@@ -29,11 +29,17 @@ void update_servo_position(){
     if(d_servo_position > c_servo_position) {
       c_servo_position = c_servo_position + 1;
       servo.write(c_servo_position);
+      stable = false;
       }
     if(d_servo_position < c_servo_position) { 
       c_servo_position = c_servo_position - 1; 
       servo.write(c_servo_position);
+      stable = false;
       }
+    if(d_servo_position == c_servo_position && not stable){
+      stable = true;
+      Serial.println("/stable;");
+    }
   }
 }
 

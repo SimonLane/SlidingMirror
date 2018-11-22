@@ -51,5 +51,10 @@ The software makes use of the ![arduino servo library](https://www.arduino.cc/en
 
 ## Use
 
-The software is designed to move the servo arm slowly, quick movements cause impact against the ends of the linear stage and the vibration produced can cause changes to mirror positions.
+The software is designed to move the servo arm slowly. Note that quick movements cause impact against the ends of the linear stage and the vibration produced can cause changes to mirror positions over time.
 
+### Manual 
+Position is easily changed by toggling the switch
+### Automated
+Position can be changed over the serial port by sending the commands "/A;" or "/B;" 
+The arduino will reply with "/stable;", once the servo has reached the desired position
