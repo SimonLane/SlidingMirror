@@ -1,14 +1,15 @@
-
-
 #include <Servo.h>
+//~~~~~~~~~~~~~~~~~~~~~~~~~ can edit ~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+int servoPin    = 3;       //pin to which servo has been attached
+int switchPin   = 4;       //pin to which stitch has been attached
+int servo_pos_0 = 0;       //'off' position
+int servo_pos_1 = 116;     //'on' position, calibrate to give slight tension on the spring to ensure repeatable position
+int step_time   = 50;      //milliseconds spent on each step, determines servo move speed
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~ don't edit ~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 Servo servo;
-
-int servoPin    = 3;
-int switchPin   = 4;
-int servo_pos_0 = 0;
-int servo_pos_1 = 116;
-
 void setup() {
   servo.attach(servoPin); 
   pinMode(switchPin,INPUT_PULLUP);
