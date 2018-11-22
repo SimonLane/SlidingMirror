@@ -1,0 +1,77 @@
+
+
+#include <Servo.h>
+
+Servo servo;
+
+int servoPin    = 3;
+int switchPin   = 4;
+int servo_pos_0 = 0;
+int servo_pos_1 = 116;
+
+void setup() {
+  servo.attach(servoPin); 
+  pinMode(switchPin,INPUT_PULLUP);
+  Serial.begin(115200);
+}
+
+
+int d_servo_position = servo_pos_1;
+int c_servo_position = 80;
+long unsigned int prev_time = 0;
+
+
+void update_servo_position(){
+  long unsigned int current_time = millis();
+  if(current_time > prev_time + 50){
+    prev_time = current_time;
+    if(d_servo_position > c_servo_position) {
+      c_servo_position = c_servo_position + 1;
+      servo.write(c_servo_position);
+      }
+    if(d_servo_position < c_servo_position) { 
+      c_servo_position = c_servo_position - 1; 
+      servo.write(c_servo_position);
+      }
+  }
+}
+
+// serial commands
+String device = "";
+String command1 = "";
+int serial_part = 0;
+
+void check_serial(){   
+  char rc;
+  while (Serial.available()) {
+   rc = Serial.read();
+   if      (rc == 47)         {serial_part = 1; device = "";command1 = "";}   // '/' char
+   else if (rc == 46)         {serial_part += 1;}                             // '.' char
+   else if (rc == 59)         {respond(device,command1); serial_part = 0;}    // ';' char
+   else if (serial_part == 1) {device   += rc;}
+   else if (serial_part == 2) {command1 += rc;}
+ }
+}
+
+void respond(String device,String command1) {
+    if(device == "A")         {d_servo_position = servo_pos_1;}
+    if(device == "B")         {d_servo_position = servo_pos_0;}
+  }
+
+int prev_switch_position  = 0;
+
+void check_switch(){
+  if(digitalRead(switchPin) != prev_switch_position) { // the switch has been moved
+    prev_switch_position = digitalRead(switchPin);
+    if      (d_servo_position == servo_pos_0)  {d_servo_position = servo_pos_1;}  //toggle position
+    else if (d_servo_position == servo_pos_1)  {d_servo_position = servo_pos_0;}  //toggle position
+  }
+}
+
+void loop() {
+  update_servo_position();
+  check_switch();
+  check_serial();
+  
+}
+

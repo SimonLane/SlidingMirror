@@ -38,8 +38,18 @@ Machine screws | 1 pack | 560-596 | RS Online | 2.39
 **The servo can draw 140mA, which is comfortably handled by the arduino and the USB supply from a computer*
 ![Wiring Diagram](images/Wiring.png)
 * Mount the arduino on the side of the servo with hot glue for convenience
-* Attach the 3D printed part to the breadboard using an M3 screw. If working in along the 90 degree angles of the board then two screws can be added. In the example shown a 45 degree angle is used, and only one screw is added. A second screw hole is provided on the 25mm version to ensure a neat 45 degree angle is made.
-* 
+* Attach the 3D printed part to the breadboard using an M6 screw. If working along the 90 degree angles of the board then two screws can be added. In the example shown a 45 degree angle is used, and only one screw is added. A second screw hole is provided on the 25mm version to ensure a neat 45 degree angle is made.
+* Use an extension spring, bending the ends as needed to connect the stage to the servo arm. The 13mm design has a screw hole that is used as a mount point for the sprnig, whilst the 25mm version has an additional 3D printed part to act as the mount point.
+* The switch can be mounted somewhere more convenient for manual adjustment of the position.
+* Attatch the USB wire to supply power, and also for automated control.
 
+## Software
 
+The provided ![arduino code](Sliding_mirror_1.ino) can be uploaded to the board by following the instructions to ![install the Arduino IDE](https://www.arduino.cc/en/Guide/HomePage) and ![upload the script](https://www.arduino.cc/en/Guide/ArduinoNano#toc5).
+
+The software makes use of the ![arduino servo library](https://www.arduino.cc/en/Reference/Servo) to control the mirror position.
+
+## Use
+
+The software is designed to move the servo arm slowly, quick movements cause impact against the ends of the linear stage and the vibration produced can cause changes to mirror positions.
 
