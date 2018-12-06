@@ -4,7 +4,7 @@
 int servoPin    = 3;       //pin to which servo has been attached
 int switchPin   = 4;       //pin to which stitch has been attached
 int servo_pos_0 = 0;       //'off' position
-int servo_pos_1 = 116;     //'on' position, calibrate to give slight tension on the spring to ensure repeatable position
+int servo_pos_1 = 160;     //'on' position, calibrate to give slight tension on the spring to ensure repeatable position
 int step_time   = 50;      //milliseconds spent on each step, determines servo move speed
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~ don't edit ~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -63,6 +63,7 @@ void check_serial(){
 void respond(String device,String command1) {
     if(device == "A")         {d_servo_position = servo_pos_1;}
     if(device == "B")         {d_servo_position = servo_pos_0;}
+    if(device == "hello")     {Serial.println("Sliding Mirror");}
   }
 
 int prev_switch_position  = 0;
@@ -79,6 +80,5 @@ void loop() {
   update_servo_position();
   check_switch();
   check_serial();
-  
 }
 
